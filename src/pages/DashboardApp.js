@@ -20,7 +20,7 @@ export default function DashboardApp() {
     setProfesorActivo(eventoCambioProfesor.target.value);
   }
   return (
-    <Page title="Dashboard | Minimal-UI">
+    <Page title="Dashboard | Profecion">
         <Box sx={{ pb: 5 }}>
           <Typography variant="h4">Bienvenido Coordinador</Typography>
         </Box>
