@@ -13,16 +13,17 @@ const users = [...Array(24)].map((_, index) => ({
   isVerified: faker.datatype.boolean(),
   status: sample(['active', 'banned']),
   role: sample([
-    'Leader',
-    'Hr Manager',
-    'UI Designer',
-    'UX Designer',
-    'UI/UX Designer',
-    'Project Manager',
-    'Backend Developer',
-    'Full Stack Designer',
-    'Front End Developer',
-    'Full Stack Developer'
+    'Docente de ciencias sociales',
+    'Docente de álgebra',
+    'Docente de química',
+    'Docente de física',
+    'Docente de geometría',
+    'Docente de biología',
+    'Docente de cálculo',
+    'Docente de historia',
+    'Docente de Español',
+    'Docente de inglés'
+    
   ])
 }));
 
