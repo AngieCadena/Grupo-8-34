@@ -5,23 +5,17 @@ import { mockImgCover } from '../utils/mockImages';
 // ----------------------------------------------------------------------
 
 const POST_TITLES = [
-  'Encuesta Numero 1',
-  'Encuesta Numero 2',
-  'Encuesta Numero 3 ',
+  'EvaluaCión de Profesores',
 ];
 
-const posts = [...Array(3)].map((_, index) => ({
-  id: faker.datatype.uuid(),
+const posts = [...Array(1)].map((_, index) => ({
+ 
   cover: mockImgCover(index + 1),
   title: POST_TITLES[index],
-  createdAt: faker.date.past(),
-  view: faker.datatype.number(),
-  comment: faker.datatype.number(),
-  share: faker.datatype.number(),
-  favorite: faker.datatype.number(),
+  createdAt: faker.date.recent(),
   author: {
-    name: faker.name.findName(),
-    avatarUrl: `/static/mock-images/avatars/avatar_${index + 1}.jpg`
+    
+    avatarUrl: `/static/mock-images/avatars/lapiz-${index + 1}.png`
   }
 }));
 
