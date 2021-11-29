@@ -1,11 +1,19 @@
 import React from "react";
-import {Form, Container,  Button} from "react-bootstrap";
+import {Form,  Button} from "react-bootstrap";
+import Page from '../components/Page';
 
-
+function Formulario() {
+    return (
+        <div>
+            
 <Form>
             <Form.Group className="mb-3" >
             <Form.Label>Cédula del estudiante</Form.Label>
             <Form.Control type="text" placeholder="Cédula del estudiante" />
+            </Form.Group>
+            <Form.Group className="mb-3" >
+            <Form.Label>Nombre del (la) profesor (a)</Form.Label>
+            <Form.Control type="text" placeholder="Nombre del (la) profesor (a)" />
             </Form.Group>
             <Form.Label>Para las preguntas que se encuentran a continuación, por favor califique de 1 a 5, teniendo en cuenta que 1 es totalmente en desacuerdo y 5 es totalmente de acuerdo.</Form.Label>
             <Form.Label>1. El (la) profesor (a) conoce y maneja los temas tratados en clase.</Form.Label>
@@ -373,5 +381,8 @@ import {Form, Container,  Button} from "react-bootstrap";
     </div>))}
    <Button type="submit">Enviar respuestas</Button>
           </Form>
-        </Container>
-      </div>
+    </div>
+      )
+  }
+  
+  export default Formulario

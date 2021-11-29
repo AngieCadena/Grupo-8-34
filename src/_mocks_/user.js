@@ -10,7 +10,7 @@ const users = [...Array(24)].map((_, index) => ({
   avatarUrl: mockImgAvatar(index + 1),
 
  
-  nombreDocente: sample([
+  name: sample([
     'Celia Angarita',
     'Ricardo Quevedo',
     'Catalina Rivera',

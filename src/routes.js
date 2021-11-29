@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import DashboardApp from './pages/DashboardApp';
 import Blog from './pages/Blog';
 import User from './pages/User';
+import Formulario from './pages/Formulario';
 
 // ----------------------------------------------------------------------
 
@@ -19,7 +20,8 @@ export default function Router() {
         { element: <Navigate to="/dashboard/app" replace /> },
         { path: 'app', element: <DashboardApp /> },
         { path: 'user', element: <User /> },
-        { path: 'blog', element: <Blog /> }
+        { path: 'blog', element: <Blog /> },
+        {path:'formulario', element: <Formulario/>}
       ]
     },
     {
