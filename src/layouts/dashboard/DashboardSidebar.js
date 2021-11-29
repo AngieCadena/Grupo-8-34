@@ -85,7 +85,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
       <Box sx={{ px: 2.5, pb: 3, mt: 10 }}>
         <Stack
           alignItems="center"
-          spacing={3}
+          spacing={17}
           sx={{
             p: 2.5,
             pt: 5,
@@ -96,13 +96,13 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
         >
           <Box
             component="img"
-            src="/static/illustrations/buho.png"
-            sx={{ width: 100, position: 'absolute', top: -50 }}
+            src="/static/illustrations/estudiante.jpeg"
+            sx={{ width: 250, position: 'absolute', top: -2 }}
           />
 
-          <Box sx={{ textAlign: 'center' }}>
+          <Box sx={{ textAlign: 'center',top: -200 }}>
             <Typography gutterBottom variant="h6">
-              Por un futuro mejor para nuestros estudiantes
+              "Por un futuro mejor para nuestros estudiantes"
             </Typography>
           </Box>
         </Stack>
