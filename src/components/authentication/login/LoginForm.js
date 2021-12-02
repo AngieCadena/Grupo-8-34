@@ -91,6 +91,7 @@ export default function LoginForm() {
           </Link>
         </Stack>
 
+
         <LoadingButton
           fullWidth
           size="large"
@@ -98,7 +99,7 @@ export default function LoginForm() {
           variant="contained"
           loading={isSubmitting}
         >
-          Login
+          Inicia Sesión
         </LoadingButton>
       </Form>
     </FormikProvider>

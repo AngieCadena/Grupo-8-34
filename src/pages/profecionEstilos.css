@@ -1,3 +1,19 @@
 .selector-de-profesores {
     margin-bottom: 20px;
   }
+
+.landing-page-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.green {
+  background-color: #00AB55;
+  color: #fff;
+}
+
+.section-separate {
+  margin-bottom: 40px;
+}
