@@ -8,10 +8,32 @@ import { mockImgAvatar } from '../utils/mockImages';
 const users = [...Array(24)].map((_, index) => ({
   id: faker.datatype.uuid(),
   avatarUrl: mockImgAvatar(index + 1),
-  name: faker.name.findName(),
-  company: faker.company.companyName(),
-  isVerified: faker.datatype.boolean(),
-  status: sample(['active', 'banned']),
+
+ 
+  name: sample([
+    'Celia Angarita',
+    'Ricardo Quevedo',
+    'Catalina Rivera',
+    'Miguel Pineda',
+    'Julio Duarte',
+    'Andrea Luna',
+    'Juliana Reyes',
+    'Nini Soto',
+    'Estella Machado',
+    'William Suarez'
+  ]),
+  company: sample([
+    '7º - 11º',
+    '8º',
+    '10º - 11º',
+    '10º - 11º',
+    '6º - 9º',
+    '6º - 9º',
+    '10º - 11º', 
+    '8º - 11º',
+    '6º - 11º',
+    '6º - 11']),
+  status: sample(['activo', 'vacaciones']),
   role: sample([
     'Docente de ciencias sociales',
     'Docente de álgebra',
