@@ -21,7 +21,7 @@ export default function Blog() {
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            Encuestas para la evaluaCión de Profesores
+            Encuestas para la evaluación de Profesores
           </Typography>
           
         </Stack>

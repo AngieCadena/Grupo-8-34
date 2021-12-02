@@ -8,6 +8,7 @@ import DashboardApp from './pages/DashboardApp';
 import Blog from './pages/Blog';
 import User from './pages/User';
 import Formulario from './pages/Formulario';
+import {CreateTeacher} from './pages/CreateTeacher';
 
 // ----------------------------------------------------------------------
 
@@ -21,7 +22,6 @@ export default function Router() {
         { path: 'app', element: <DashboardApp /> },
         { path: 'user', element: <User /> },
         { path: 'blog', element: <Blog /> },
-        {path:'formulario', element: <Formulario/>}
       ]
     },
     {
@@ -29,7 +29,9 @@ export default function Router() {
       element: <LogoOnlyLayout />,
       children: [
         { path: 'login', element: <Login /> },
-        { path: '/', element: <Navigate to="/dashboard" /> },
+        { path: '/', element: <Navigate to="/login" /> },
+        {path:'form', element: <Formulario/>},
+        {path:'create-teacher', element: <CreateTeacher/>}
       ]
     },
     { path: '*', element: <Navigate to="/404" replace /> }

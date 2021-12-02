@@ -23,11 +23,6 @@ const sidebarConfig = [
     title: 'Encuestas',
     path: '/dashboard/blog',
     icon: getIcon(fileTextFill)
-  },
-  {
-    title: 'login',
-    path: '/login',
-    icon: getIcon(lockFill)
   }
 ];
 
