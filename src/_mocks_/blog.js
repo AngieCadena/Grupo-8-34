@@ -15,6 +15,7 @@ const posts = [...Array(1)].map((_, index) => ({
   createdAt: faker.date.recent(),
   author: {
     
+  
     avatarUrl: `/static/mock-images/avatars/lapiz-${index + 1}.png`
   }
 }));

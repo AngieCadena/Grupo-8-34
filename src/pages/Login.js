@@ -50,7 +50,7 @@ export default function Login() {
           <h1 style={{"marginTop": "80px"}}>
             Coordinador, por favor ingresa a tu cuenta
           </h1>
-          <img src="/static/illustrations/buho.png" alt="login" />
+          <img src="/static/illustrations/estudiante.png" alt="login" />
         </SectionStyle>
       </MHidden>
 
@@ -68,9 +68,9 @@ export default function Login() {
 
           <MHidden width="smUp">
             <Typography variant="body2" align="center" sx={{ mt: 3 }}>
-              Don’t have an account?&nbsp;
+              ¿No tienes una cuenta?&nbsp;
               <Link variant="subtitle2" component={RouterLink} to="register">
-                Get started
+                Empieza aquí!
               </Link>
             </Typography>
           </MHidden>
