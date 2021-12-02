@@ -1,6 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import {FormControl,  FormLabel, RadioGroup, FormControlLabel, Radio, TextField, MenuItem, InputLabel, Select, Button } from '@mui/material';
 import './profecionEstilos.css';
+
+const getRawTeacher = [
+        {nombre:'profesor1', idMateria:'Materiaid1'},
+        {nombre:'profesor2', idMateria:'Materiaid2'},
+        {nombre:'profesor3', idMateria:'Materiaid3'},
+        {nombre:'profesor4', idMateria:'Materiaid4'},
+        {nombre:'profesor5', idMateria:'Materiaid5'},
+        {nombre:'profesor6', idMateria:'Materiaid6'}
+];
+
 function Formulario() {
         var preguntasObject = [
                 {texto:"1. El (la) profesor (a) conoce y maneja los temas tratados en clase.", val: ''},
@@ -15,19 +26,38 @@ function Formulario() {
                 {texto:"10. Volvería a tomar un curso con este (a) profesor (a).", val: ''}
         ];
         const [nota, setNota] = useState('');
-        const [profesorActivo, setProfesorActivo] = useState('Profesora Rivera');
+        const [profesorActivo, setProfesorActivo] = useState(getRawTeacher[0].idMateria);
         const [preguntas, setPreguntas] = useState(preguntasObject);
+        const navigate = useNavigate();
+                
+        
+
         const funcionCambiarDeProfesor = function(eventoCambioProfesor)  {
           setProfesorActivo(eventoCambioProfesor.target.value);
         }
         const crearEncuesta = () => {
                 console.log(nota);
                 console.log(preguntas);
+                console.log(profesorActivo);
                 let sumNotas = 0;
+                let lasPreguntasEstanCompletas = true;
+
                 for (let i=0; i < preguntas.length; i++ ) {
-                        sumNotas += parseFloat(preguntas[i].val);
+                        const preguntaValue = parseFloat(preguntas[i].val);
+                        if (preguntas[i].val === '') {
+                                lasPreguntasEstanCompletas = false;
+                                break;
+                        }
+                        sumNotas += preguntaValue;
                 }
+
+                if (!lasPreguntasEstanCompletas  || nota === '') {
+                        alert("Faltan campos por responder");
+                        return;
+                }
+
                 console.log(sumNotas / preguntas.length );
+                navigate('/', { replace: true });
         }
         const changeQuestionValue = (index, newVal) => {
                 const newPreguntas = preguntas.map((x) => x);
@@ -48,9 +78,7 @@ function Formulario() {
                                         label="Profesor"
                                         onChange={funcionCambiarDeProfesor}
                                         >
-                                        <MenuItem value={'Profesora Rivera'}>Profesora Rivera</MenuItem>
-                                        <MenuItem value={'Profesora Cadena'}>Profesora Cadena</MenuItem>
-                                        <MenuItem value={'Profesora Wendy'}>Profesora Wendy</MenuItem>
+                                        {getRawTeacher.map((teacher) => <MenuItem value={teacher.idMateria}>{teacher.nombre + '-' + teacher.idMateria}</MenuItem>)}
                                         </Select>
                                 </FormControl>
                         </div>

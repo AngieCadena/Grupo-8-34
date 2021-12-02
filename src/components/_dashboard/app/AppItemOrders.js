@@ -32,15 +32,14 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const TOTAL = 4;
-
-export default function AppItemOrders() {
+export default function AppItemOrders(props) {
+  const {grade} = props;
   return (
     <RootStyle>
       <IconWrapperStyle>
         <Icon icon="mdi:finance" width={45} height={45} />
       </IconWrapperStyle>
-      <Typography variant="h3">4.3/5</Typography>
+      <Typography variant="h3">{grade}/5</Typography>
       <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
         Calificación promedio
       </Typography>

@@ -1,6 +1,8 @@
-import { Button } from '@mui/material';
+import { useState } from 'react';
+import { Button, Dialog, DialogTitle, DialogContent,  } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { LoginForm } from '../components/authentication/login';
+import { CreateTeacher } from '../pages/CreateTeacher';
 import AuthSocial from '../components/authentication/AuthSocial';
 import './profecionEstilos.css';
 import Logo from '../components/Logo';
@@ -12,12 +14,12 @@ import Logo from '../components/Logo';
 
 export default function Login() {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const abrirEncuesta = () => {
     navigate('/form', { replace: true });
-  }
-
-  const registroProfesor = () => {
-    navigate('/create-teacher', { replace: true });
   }
 
 
@@ -31,7 +33,7 @@ export default function Login() {
           color="inherit"
           variant="contained"
           className="green section-separate"
-          onClick={registroProfesor}
+          onClick={handleOpen}
         >
           Incríbete
         </Button>
@@ -58,7 +60,12 @@ export default function Login() {
         <AuthSocial />
         <LoginForm />
       </div>
-
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Inscribete en ProfeCión</DialogTitle>
+        <DialogContent>
+          <CreateTeacher submitCallback={handleClose}/>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

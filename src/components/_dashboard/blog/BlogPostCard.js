@@ -73,6 +73,7 @@ export default function BlogPostCard({ post, index }) {
 
   return (
     <Grid item xs={12} sm={latestPostLarge ? 12 : 6} md={latestPostLarge ? 6 : 3}>
+
       <Card sx={{ position: 'relative' }}>
         <CardMediaStyle
           sx={{
@@ -143,7 +144,7 @@ export default function BlogPostCard({ post, index }) {
           </Typography>
 
           <TitleStyle
-            to="#"
+            to="/form"
             color="inherit"
             variant="subtitle2"
             underline="hover"

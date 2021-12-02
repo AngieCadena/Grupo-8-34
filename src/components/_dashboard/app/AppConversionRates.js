@@ -9,9 +9,18 @@ import { BaseOptionChart } from '../../charts';
 
 // ----------------------------------------------------------------------
 
-const CHART_DATA = [{ data: [5.0, 4.3, 4.48, 4.70, 3.20, 2.10, 1.10, 5.00, 4.40, 5] }];
 
-export default function AppConversionRates() {
+
+export default function AppConversionRates(props) {
+  const { profesores } = props;
+  const CHART_DATA = [{ data: profesores.map((profesor) => {
+    let suma = 0;
+    profesor.encuestasEstudiantes.forEach((encuesta) => suma += encuesta.calificacionTotalEncuesta);
+    console.log(suma);
+    return suma / profesor.encuestasEstudiantes.length;
+
+  })  }];
+  const nombreProfesores = profesores.map((profesor) => profesor.nombre);
   const chartOptions = merge(BaseOptionChart(), {
     tooltip: {
       marker: { show: false },
@@ -26,18 +35,7 @@ export default function AppConversionRates() {
       bar: { horizontal: true, barHeight: '28%', borderRadius: 2 }
     },
     xaxis: {
-      categories: [
-        'Profesora Rivera',
-        'Profesora Cadena',
-        'Profesora Wendy',
-        'Profesor Carlos',
-        'Profesor Juan',
-        'Profesor Benito',
-        'Profesor Charles',
-        'Profesor Eduardo',
-        'Profesor Camilo',
-        'Profesor Juan Manuel'
-      ]
+      categories: nombreProfesores
     }
   });
 

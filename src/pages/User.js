@@ -25,15 +25,16 @@ import Page from '../components/Page';
 import Label from '../components/Label';
 import Scrollbar from '../components/Scrollbar';
 import SearchNotFound from '../components/SearchNotFound';
-import { UserListHead, UserListToolbar, UserMoreMenu } from '../components/_dashboard/user';
-//
-import USERLIST from '../_mocks_/user';
+import { UserListHead, UserListToolbar } from '../components/_dashboard/user';
+import { mockImgAvatar } from '../utils/mockImages';
+// mock is not longer used
+// import USERLIST from '../_mocks_/user';
 
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
   { id: 'Nombre', label: 'Nombre', alignRight: false },
-  { id: 'Cursos', label: 'Cursos', alignRight: false },
+  { id: 'idMateria', label: 'Id Materia', alignRight: false },
   { id: 'Ocupación', label: 'Ocupación', alignRight: false },
    { id: 'Estatus', label: 'Estatus', alignRight: false },
   { id: '' }
@@ -70,7 +71,73 @@ function applySortFilter(array, comparator, query) {
   return stabilizedThis.map((el) => el[0]);
 }
 
+const loadTeachers = () => { 
+  const tempAppObject = {
+    profesores:[
+        {
+            identificacion: "1",
+            nombre: "profesor 1",
+            imagen: "urlentexto",
+            idMateria: "PIM-2021-3",
+            encuestasEstudiantes: [
+                {
+                    calificacionTotalEncuesta: 5.0,
+                    respuestas: "respuestasEnTexto",
+                    promedioEstudiante: 5.0
+                },
+                {
+
+                }
+            ]
+        },
+        {
+          identificacion: "2",
+          nombre: "profesor 2",
+          imagen: "urlentexto",
+          idMateria: "PIM-2021-33",
+      },
+      {
+        identificacion: "3",
+        nombre: "profesor 3",
+        imagen: "urlentexto",
+        idMateria: "PIM-2022-1",
+      },
+      {
+        identificacion: "4",
+        nombre: "profesor 4",
+        imagen: "urlentexto",
+        idMateria: "PIM-2022-2",
+      },
+      {
+        identificacion: "5",
+        nombre: "profesor 5",
+        imagen: "urlentexto",
+        idMateria: "PIM-2020-1",
+      },
+      {
+        identificacion: "6",
+        nombre: "profesor 6",
+        imagen: "urlentexto",
+        idMateria: "PIMX-2020",
+      },
+  ]
+  }
+  const userList = tempAppObject.profesores.map((teacher, index) => {
+    return {
+      id: teacher.idMateria,
+      name: teacher.nombre,
+      company: teacher.idMateria,
+      status: 'active',
+      role: 'teacher',
+      avatarUrl: mockImgAvatar(index + 1 % 17),
+    }
+  });
+  return userList;
+}
+
+const USERLIST = loadTeachers();
 export default function User() {
+
   const [page, setPage] = useState(0);
   const [order, setOrder] = useState('asc');
   const [selected, setSelected] = useState([]);
@@ -197,10 +264,6 @@ export default function User() {
                             >
                               {sentenceCase(status)}
                             </Label>
-                          </TableCell>
-
-                          <TableCell align="right">
-                            <UserMoreMenu />
                           </TableCell>
                         </TableRow>
                       );

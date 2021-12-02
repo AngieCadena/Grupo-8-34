@@ -7,25 +7,26 @@ import { BaseOptionChart } from '../../charts';
 
 // ----------------------------------------------------------------------
 
-const CHART_DATA = [
-  {
-    name: 'Calificación Promedio Profesor',
-    type: 'area',
-    data: [1.0, 2.0, 3.1, 2.2, 5.0, 3.2, 1.1, 0.3, 3.5, 4.7, 3.0]
-  }
-];
 
-export default function AppWebsiteVisits() {
+
+export default function AppWebsiteVisits(props) {
+  const {profesor} = props;
+  const encuestasBasePromedioEstudiante = profesor.encuestasEstudiantes.sort((encuesta1, encuesta2)=> {
+    return encuesta1.promedioEstudiante - encuesta2.promedioEstudiante;
+  });
+  const ejeX = encuestasBasePromedioEstudiante.map((encuesta)=>encuesta.promedioEstudiante);
+  const ejeY = encuestasBasePromedioEstudiante.map((encuesta)=>encuesta.calificacionTotalEncuesta);
+  const CHART_DATA = [
+    {
+      name: 'Calificación Promedio Profesor',
+      type: 'area',
+      data: ejeY
+    }
+  ];
+
   const chartOptions = merge(BaseOptionChart(), {
     fill: { type: ['solid', 'gradient', 'solid'] },
-    labels: [
-      'Promedio 1.0',
-      'Promedio 2.0',
-      'Promedio 3.0',
-      'Promedio 4.0',
-      'Promedio 5.0',
-    ],
-    
+    labels: ejeX,
     tooltip: {
       shared: true,
       intersect: false,
@@ -42,7 +43,7 @@ export default function AppWebsiteVisits() {
 
   return (
     <Card>
-      <CardHeader title="Calificación profesor vs Promedio Estudiante" subheader="Relación entre nota y resultado de la evaluación" />
+      <CardHeader title="Calificación profesor vs Promedio Estudiante" subheader="Relación entre la nota que obtuvo el estudiante y resultado de la evaluación" />
       <Box sx={{ p: 3, pb: 1 }} dir="ltr">
         <ReactApexChart type="line" series={CHART_DATA} options={chartOptions} height={364} />
       </Box>

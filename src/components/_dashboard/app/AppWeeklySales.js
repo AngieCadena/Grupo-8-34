@@ -35,13 +35,14 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
 
 const TOTAL = 22;
 
-export default function AppWeeklySales() {
+export default function AppWeeklySales(props) {
+  const {numEncuestas} = props;
   return (
     <RootStyle>
       <IconWrapperStyle>
         <Icon icon="mdi:draw-pen" width={45} height={45} />
       </IconWrapperStyle>
-      <Typography variant="h3">{fShortenNumber(TOTAL)}</Typography>
+      <Typography variant="h3">{fShortenNumber(numEncuestas)}</Typography>
       <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
         Numero de encuestas
       </Typography>

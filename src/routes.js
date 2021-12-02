@@ -8,7 +8,6 @@ import DashboardApp from './pages/DashboardApp';
 import Blog from './pages/Blog';
 import User from './pages/User';
 import Formulario from './pages/Formulario';
-import {CreateTeacher} from './pages/CreateTeacher';
 
 // ----------------------------------------------------------------------
 
@@ -30,8 +29,7 @@ export default function Router() {
       children: [
         { path: 'login', element: <Login /> },
         { path: '/', element: <Navigate to="/login" /> },
-        {path:'form', element: <Formulario/>},
-        {path:'create-teacher', element: <CreateTeacher/>}
+        {path:'form', element: <Formulario/>}
       ]
     },
     { path: '*', element: <Navigate to="/404" replace /> }

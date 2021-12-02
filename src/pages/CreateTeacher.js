@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
 import './profecionEstilos.css';
 
-export function CreateTeacher() {
+export function CreateTeacher(props) {
     const [nombre, setNombre] = useState('');
     const [idMateria, setIdMateria] = useState('');
+    const { submitCallback } = props;
 
     const createTeacher = () => {
         console.log(nombre);
         console.log(idMateria);
+        submitCallback();
     }
     return (
         <div className="teacher-container">
